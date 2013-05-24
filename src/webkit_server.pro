@@ -65,6 +65,7 @@ HEADERS = \
   NetworkReplyProxy.h
 
 SOURCES = \
+  main.cpp \
   Version.cpp \
   EnableLogging.cpp \
   Authenticate.cpp \
@@ -79,7 +80,6 @@ SOURCES = \
   ResizeWindow.cpp \
   CurrentUrl.cpp \
   ConsoleMessages.cpp \
-  main.cpp \
   WebPage.cpp \
   Server.cpp \
   Connection.cpp \

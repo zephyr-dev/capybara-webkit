@@ -1,3 +1,9 @@
+#include <QtGlobal>
+
+#if QT_VERSION < QT_VERSION_CHECK(4, 8, 0)
+  #error "capybara-webkit requires at least Qt 4.8"
+#endif
+
 #include "Server.h"
 #include <QApplication>
 #include <iostream>
