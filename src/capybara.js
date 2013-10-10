@@ -7,6 +7,22 @@ Capybara = {
     try {
       return this[CapybaraInvocation.functionName].apply(this, CapybaraInvocation.arguments);
     } catch (e) {
+      if (typeof(CapybaraInvocation) === "undefined") {
+        e.message = e.message + "\n\n js-backtrace-monkey-patch: CapybaraInvocation not defined";
+      } else if (typeof(CapybaraInvocation.functionName) === "undefined") {
+        e.message = e.message + "\n\n js-backtrace-monkey-patch: CapybaraInvocation.functionName not defined";
+      } else if (typeof(CapybaraInvocation.arguments) === "undefined") {
+        e.message = e.message + "\n\n js-backtrace-monkey-patch: CapybaraInvocation.arguments not defined";
+      } else if (typeof(CapybaraInvocation.error) === "undefined") {
+        e.message = e.message + "\n\n js-backtrace-monkey-patch: CapybaraInvocation.error not defined";
+      } else {
+        e.message = e.message + "\n\n js-backtrace-monkey-patch: " +
+          "\n CapybaraInvocation.functionName = " +  CapybaraInvocation.functionName +
+          "\n CapybaraInvocation.arguments = " +  CapybaraInvocation.arguments +
+          "\n CapybaraInvocation = " + JSON.stringify(CapybaraInvocation) +
+          "\n Capybara = " + JSON.stringify(this);
+      }
+
       CapybaraInvocation.error = e;
     }
   },
