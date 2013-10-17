@@ -20,7 +20,9 @@ Capybara = {
           "\n CapybaraInvocation.functionName = " +  CapybaraInvocation.functionName +
           "\n CapybaraInvocation.arguments = " +  CapybaraInvocation.arguments +
           "\n CapybaraInvocation = " + JSON.stringify(CapybaraInvocation) +
-          "\n Capybara = " + JSON.stringify(this);
+          "\n Capybara = " + JSON.stringify(this) +
+          "\n window.location = " + JSON.stringify(window.location) +
+          "\n document.body.innerHTML = " + JSON.stringify(document.body.innerHTML);
       }
 
       CapybaraInvocation.error = e;
