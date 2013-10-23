@@ -1,3 +1,5 @@
+if (typeof(Capybara) != "undefined") { throw("Capybara already defined"); }
+
 Capybara = {
   nextIndex: 0,
   nodes: {},
@@ -20,7 +22,8 @@ Capybara = {
           "\n CapybaraInvocation.functionName = " +  CapybaraInvocation.functionName +
           "\n CapybaraInvocation.arguments = " +  CapybaraInvocation.arguments +
           "\n CapybaraInvocation = " + JSON.stringify(CapybaraInvocation) +
-          "\n Capybara = " + JSON.stringify(this) +
+          "\n Capybara (this) = " + JSON.stringify(this) +
+          "\n Capybara (constant) = " + JSON.stringify(Capybara) +
           "\n window.location = " + JSON.stringify(window.location) +
           "\n document.body.innerHTML = " + JSON.stringify(document.body.innerHTML);
       }
